@@ -1,0 +1,27 @@
+
+package pkginterface;
+
+import javax.swing.*;
+
+public class SplashScreen extends JWindow{
+private JLabel label;
+private Icon pic;
+
+public SplashScreen(){
+pic = new ImageIcon("222.jpg");
+label = new JLabel(pic);
+add(label);
+}
+
+public static void main(String[] args) {
+SplashScreen window = new SplashScreen();  
+window.setBounds(500, 150, 414, 896);
+window.setVisible(true);
+
+try {
+    Thread.sleep(3000);
+} catch (InterruptedException e) {}
+window.dispose();
+
+}  
+}
