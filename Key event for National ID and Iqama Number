@@ -1,0 +1,53 @@
+ private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {                                       
+        // TODO add your handling code here:
+        String ID=jTextField2.getText();
+        int length=ID.length();
+        if(evt.getKeyChar()>='0'&& evt.getKeyChar()<='9'){
+            //cant able to enter in text field if its char not number
+            if (length<10)
+            {
+          jTextField2.setEditable(true);
+          jLabel6.setText("");  
+            }else {
+           jTextField2.setEditable(false) ;
+           jLabel6.setText("10 Digit Only! ");
+            }   
+        }else{
+           jTextField2.setEditable(false) ;
+            //set error massage
+            jLabel6.setText("Please Enter Number Only! ");
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACKSPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+            jTextField2.setEditable(true);  
+            jLabel6.setText("");  
+            }else{
+               jTextField2.setEditable(false); 
+            }     
+        }
+    }                                      
+
+    private void jTextField6KeyPressed(java.awt.event.KeyEvent evt) {                                       
+        // TODO add your handling code here:
+        String ID=jTextField6.getText();
+        int length=ID.length();
+        if(evt.getKeyChar()>='0'&& evt.getKeyChar()<='9'){
+            //cant able to enter in text field if its char not number
+            if (length<10)
+            {
+                jTextField6.setEditable(true);
+                Phone.setText("");
+            }else {
+                jTextField6.setEditable(false) ;
+                Phone.setText("10 Digit Only! ");
+            }
+        }else{
+            jTextField6.setEditable(false) ;
+            //set error massage
+            Phone.setText("Please Enter Number Only! ");
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACKSPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                jTextField6.setEditable(true);
+                Phone.setText("");
+            }else{
+                jTextField6.setEditable(false);
+            }
+        }
+    }                                      
