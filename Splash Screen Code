@@ -20,6 +20,8 @@ window.setVisible(true);
 
 try {
     Thread.sleep(3000);
+    NewJFrame1 frameStart = new  NewJFrame1();
+                  frameStart.setVisible(true);
 } catch (InterruptedException e) {}
 window.dispose();
 
