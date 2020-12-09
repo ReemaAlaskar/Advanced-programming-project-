@@ -1,0 +1,281 @@
+
+
+package pkginterface;
+
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
+public class NewJFrame3 extends javax.swing.JFrame {
+    Connection connection = null;
+    Statement statement = null;
+    Statement st = null;
+    ResultSet resultSet = null;
+    String query;
+    int curRow = 0;
+    public String user;
+
+    
+  //  Statement st=connection.createStatement(); 
+    PreparedStatement pst;
+   
+    public NewJFrame3() {
+        initComponents();
+        doConnect();
+        getContentPane().setBackground(new Color(235,234,234));
+        jButton1.setBackground(new Color(127,136,76));
+        Icon pic1 = new ImageIcon(getClass().getResource("\\image\\789.PNG"));
+            jLabel5.setIcon(pic1);
+                     Icon pic2 = new ImageIcon(getClass().getResource("\\image\\icons8-left-50.PNG"));
+    jLabel6.setIcon(pic2);
+    }
+     public void doConnect( ) 
+    {
+        try 
+        {
+            String URL = "jdbc:mysql://localhost:3306/ummah";
+            String username = "root";
+            String password = "1234";
+            query = "select * from signup_login";
+            
+            connection = DriverManager.getConnection(URL,username,password);
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+	    resultSet = statement.executeQuery(query);
+                     
+            resultSet.next();
+	  
+          
+        } catch (SQLException ex) 
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }
+
+   
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(235, 234, 234));
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 17)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(94, 76, 28));
+        jLabel1.setText("Username");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 17)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(94, 76, 28));
+        jLabel2.setText("Password");
+
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 21)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Log In");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 70, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 204, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 36)); // NOI18N
+        jLabel3.setText("Welcome Back!");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, 50));
+
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        jLabel4.setText("Log in to continue");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 900));
+
+        setBounds(0, 0, 444, 964);
+    }// </editor-fold>                        
+
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {                                     
+NewJFrame1 frameba = new  NewJFrame1();
+                  frameba.setVisible(true);         
+    }                                    
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {                                     
+NewJFrame1 frameba = new  NewJFrame1();
+                  frameba.setVisible(true);             
+    }                                    
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    
+        // TODO add your handling code here:
+       // user=jTextField1.getText();
+       
+       String x = jTextField1.getText();
+       userlog j = new userlog();
+     j.setUser1(x);
+   try{
+       //open connection
+       String username = jTextField1.getText();
+       String password= jPasswordField1.getText();
+       String sql= "select * from signup_login where username='"+username+"'and password='"+password+"'";
+       ResultSet rs = statement.executeQuery(sql);
+       if(rs.first()){
+          
+           setUser(username);
+           dispose();//close 
+       
+           NewJFrame4 hpage = new NewJFrame4();
+           hpage.show();
+       }else{
+           //if username and password is wrong show massage 
+           JOptionPane.showMessageDialog(this, "username or password is incorrect!");
+           jTextField1.setText("");
+           jPasswordField1.setText("");
+       }
+       //   connection.close();     
+               
+   }catch(Exception e){
+       System.out.println(e.getMessage());
+   }
+
+    }                                        
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+   
+    }                                           
+
+  // String j ;
+   // public void setuser(String use){
+        
+    //    user=use;
+        
+       //  j=user;
+         
+       //  String value=text.getText();
+         //  NewJFrame5 b = new NewJFrame5();
+ //b.jLabel20.setText(jTextField1.getText());
+//  b.setVisible(true);
+  //     NewJFrame5 j = new NewJFrame5(user);
+           
+    //}
+     
+   
+//public   String getuser(){
+ //user=j;
+  //JOptionPane.showMessageDialog(this, j);
+     // NewJFrame5 b = new NewJFrame5();
+ //b.jLabel20.setText(jTextField1.getText());
+  //b.setVisible(true);
+ //return user; 
+//}
+
+    public void setUser(String user) {
+        this.user = user;
+         JOptionPane.showMessageDialog(this,"Welcome "+ user+"!");
+      
+    }
+      public String getUser() {
+     // JOptionPane.showMessageDialog(this, user);
+        return user;
+    }
+
+    public static void main(String args[]) {
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            
+            public void run() {
+                
+                new NewJFrame3().setVisible(true);
+                
+            }
+        });
+        
+    }
+
+    // Variables declaration - do not modify                     
+    public javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
+    public javax.swing.JTextField jTextField1;
+    // End of variables declaration                   
+
+   
+}
