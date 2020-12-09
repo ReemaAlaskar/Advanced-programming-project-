@@ -1,0 +1,60 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pkginterface;
+
+/**
+ *
+ * @author msree
+ */
+public class cardshow {
+    public static boolean vis=false;
+
+    public static boolean isVis() {
+        return vis;
+    }
+
+    public static void setVis(boolean vis) {
+        cardshow.vis = vis;
+    }
+    
+}
+
+class showappo {
+        public static boolean appo=false;
+
+    public static boolean isAppo() {
+        return appo;
+    }
+
+    public static void setAppo(boolean appo) {
+        showappo.appo = appo;
+    }
+    
+}
+
+
+class userlog {
+    
+    public static String user1;
+//doConect();
+   public  String getUser1() {
+        // JOptionPane.showMessageDialog(null, user1);
+        return user1;
+        
+   }
+
+  public  void setUser1(String user1) {
+        
+      this.user1 = user1;
+   //     JOptionPane.showMessageDialog(null, user1);
+   
+  }
+  
+    /**
+     *
+     */
+    }
+
